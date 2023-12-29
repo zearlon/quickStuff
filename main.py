@@ -26,6 +26,7 @@ class FluxCapacitor:
         for participant in self.participants:
             if type(participant).__name__ == "Kid":
                 host = participant.find_closest_host(self.participants)
+                participant.host_visited(host)
 
                 #if there are no hosts left to visit
                 if host == 0:
