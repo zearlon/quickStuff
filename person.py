@@ -38,13 +38,15 @@ class Kid(Person):
     def find_closest_host(self, participants_list):
         distance = 0
         closest_host = 0
+
         for participant in participants_list:
             if participant in self.visited_hosts:
                 continue
-            #add check to see if the host has been visited
+
             if type(participant).__name__ == "Host":
                 distanceX = abs(participant.get_position()[0] - self.get_position()[0])
                 distanceY = abs(participant.get_position()[1] - self.get_position()[1])
+
                 if distance == 0 or (distanceX + distanceY < distance and distanceX+distanceY > 0):
                     distance = distanceX + distanceY
                     closest_host = participant
