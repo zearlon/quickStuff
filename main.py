@@ -30,7 +30,7 @@ class FluxCapacitor:
 
                 #if there are no hosts left to visit
                 if host == 0:
-                    self.isContinue = True
+                    self.isContinue = False
                     return None
                 
                 participant.set_position(host.get_position())
