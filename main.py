@@ -53,8 +53,7 @@ class FluxCapacitor:
         return 0
 
     def get_victim(self, death_result):
-        for death in death_result:
-            print(death.position)
+        return death_result
 
 if __name__ == '__main__':
     candy = Candy(20, 0.3)
