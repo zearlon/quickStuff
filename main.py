@@ -27,10 +27,11 @@ class FluxCapacitor:
             if type(participant).__name__ == "Kid":
                 host = participant.find_closest_host(self.participants)
 
+                #if there are no hosts left to visit
                 if host == 0:
                     self.isContinue = True
                     return None
-
+                
                 participant.set_position(host.get_position())
                 self.host_doors[host].append(participant)
 
@@ -38,7 +39,9 @@ class FluxCapacitor:
 
     def give_candy(self):
         for host in self.host_doors:
+            #sort kids based on initiative
             self.host_doors[host].sort(key=lambda x: x.initiative, reverse=True)
+            
             for kid in self.host_doors[host]:
                 candy = host.remove_candy(return_candy)
                 kid.add_candy(candy)
